@@ -33,7 +33,3 @@ class TestClientList(unittest.TestCase):
             self.client_list.changeCashe('dog', 5)
     def tearDown(self):
         self.client_list.clean()
-
-
-
-

@@ -26,10 +26,7 @@ def get_cashe():
 def get_bakes():
     type = str(flask.request.args['type'])
     poss_var = order.bake_in_stock[type]
-    s = str()
-    for el in poss_var:
-        s += el + '&'
-    return s
+    return '&'.join(poss_var)
 
 
 
@@ -45,19 +42,15 @@ def put():
 
 @app.route('/getAllTypes', methods=['GET'])
 def get_types():
-    s = str()
-    for type in order.poss_arguments['type']:
-        s += type + '&'
-    return s
+    args = order.poss_arguments['type']
+    return '&'.join(args)
 
 
 @app.route('/getAllArguments', methods=['GET'])
 def get_param():
     s = str()
     for param, args in order.poss_arguments.items():
-        for arg in args:
-            s += arg + ' '
-        s += '&'
+        s += ' '.join(args) + '&'
     return s
 
 
@@ -70,9 +63,8 @@ def total_sum():
 def get_basket():
     s = str()
     for bake in order.getBasket():
-        for par in bake:
-            s += par + ' '
-        s += '&'
+        s1 = ' '.join(bake)
+        s += s1 + '&'
     return s
 
 
