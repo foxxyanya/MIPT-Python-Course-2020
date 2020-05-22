@@ -2,14 +2,14 @@ import requests
 import argparse
 
 
-main_parser = 0
-main_args = 0
+default_host = 'localhost'
+default_port = 8000
 
 
 def create_main_parser():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--host', default = 'localhost')
-    parser.add_argument('--port', default=8000, type=int)
+    parser.add_argument('--host', default=default_host)
+    parser.add_argument('--port', default=default_port, type=int)
     return parser
 
 

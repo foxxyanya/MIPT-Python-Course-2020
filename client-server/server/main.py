@@ -7,6 +7,7 @@ order = lib.Order()
 
 
 app = flask.Flask('bakery-server')
+default_port = 8000
 
 
 @app.route('/logIn', methods=['POST'])
@@ -89,7 +90,7 @@ def leave():
 
 
 def main():
-    app.run('::', port=8000)
+    app.run('::', port=default_port)
 
 
 if __name__ == '__main__':
