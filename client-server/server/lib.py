@@ -11,20 +11,20 @@ class Order:
         self.opened = False
         self.basket = []
         self.total = 0
-    def loggedIn(self):
+    def logged_in(self):
         return self.opened
-    def logIn(self, user):
+    def log_in(self, user):
         self.login = user
         self.opened = True
-    def getLogin(self):
+    def get_login(self):
         return self.login
-    def getTotal(self):
+    def get_total(self):
         return self.total
-    def putInBasket(self, type, fill, size):
+    def put_in_basket(self, type, fill, size):
         bake = Bake(type, fill, size)
         self.basket.append(bake)
         self.total += bake.price()
-    def getBasket(self):
+    def get_basket(self):
         basket = list()
         for bake in self.basket:
             l = list()
@@ -33,7 +33,7 @@ class Order:
             l.append(bake.size)
             basket.append(l)
         return basket
-    def logOut(self):
+    def log_out(self):
         self.opened = False
         self.basket = []
         self.total = 0
@@ -59,14 +59,14 @@ class ClientList:
         self.cashe = []
     def clients(self):
         return self.clients
-    def verifyUser(self, user):
+    def verify_user(self, user):
         if not user in self.clients:
             self.clients.append(user)
             self.cashe.append(0)
-    def getCashe(self, user):
+    def get_cashe(self, user):
         cashe = self.cashe[self.clients.index(user)]
         return ('%.2f' % cashe)
-    def changeCashe(self, user, sum):
+    def change_cashe(self, user, sum):
         self.cashe[self.clients.index(user)] = sum * self.CASHE
     def clean(self):
         self.clients = []
