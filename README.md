@@ -1,1 +1,1 @@
-# Parfenyuk_Anna_Python2020
+Small client-server app in Python.
